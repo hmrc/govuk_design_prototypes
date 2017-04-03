@@ -1,0 +1,60 @@
+//Adds a class to the body as a hook for resizing the iframes
+
+.hack_iframe-content {
+
+  .hack_iframe-controls {
+    display: none;
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  .hack_example__iframe {
+    width: 100%;
+  }
+
+  //Buttons for resizing the iframe
+  .hack_button {
+    text-decoration: none;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 15px;
+    line-height: 32px;
+    height: auto;
+    display: inline-block;
+    text-align: center;
+    background-color: #DDDDDD;
+    cursor: pointer;
+    border: none;
+
+    &:focus {
+      outline: 3px solid #ffbf47;
+    }
+  }
+}
+
+.hack_tablet-img,
+.hack_mobile-img {
+  display: none;
+}
+
+.large .hack_desktop-img {
+  display: block;
+}
+
+.medium .hack_tablet-img {
+  display: block;
+}
+
+.small .hack_mobile-img {
+  display: block;
+}
+
+.small .hack_desktop-img{
+  display: none;
+}
+
+.medium .hack_desktop-img{
+  display: none;
+}

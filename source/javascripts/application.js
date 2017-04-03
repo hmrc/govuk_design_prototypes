@@ -5,12 +5,14 @@
 //= require lunr.min
 //= require lunr.stemmer.support
 //= require search
+//= require modules/iframe
 
 // Search
 var lunrIndex = null;
 var lunrData  = null;
 
 $(function() {
+
 
   $('.fixedsticky').fixedsticky();
 
