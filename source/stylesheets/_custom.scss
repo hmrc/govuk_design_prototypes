@@ -7,7 +7,7 @@
   // @extend %grid-row;
   @extend %contain-floats;
   padding: $gutter !important;
-  border-top: 1px solid $border-colour;
+  //border-top: 1px solid $border-colour;
   border-bottom: 1px solid $border-colour;
   margin-bottom: $gutter-half;
 
@@ -16,7 +16,7 @@
     @include grid-column(1 / 6);
 
     div{
-      width: 70px;
+      min-width: 70px;
       span{
         text-align: center;
         display: block
@@ -78,10 +78,6 @@
 .technical-documentation {
     max-width: none;
     margin-top: 18px; // Hack so the subheadings align nicely with the search box :-)
-}
-
-.service-toolkit-link{
-  margin: 20px 0 -15px;
 }
 
 .nav-group{
@@ -389,7 +385,11 @@ ul ul.section {
     blockquote {
       margin: 15px 0;
       border-left: 4px solid #dee0e2;
-  }
+    }
+
+    strong{
+      font-weight: bold;
+    }
 
 }
 
@@ -701,39 +701,6 @@ $palette: (
   display: block;
 }
 
-.service-toolkit{
-
-  .product-name{
-    font-weight: 400;
-    font-size: 24px;
-    white-space: nowrap;
-  }
-
-  .section-header {
-    margin: $gutter 0 $gutter/2 0;
-    color: $grey-1;
-    font-size: em(19);
-    border-bottom: 1px solid $grey-2;
-    padding-bottom: 5px;
-  }
-
-  .page-header__context {
-      font-family: "nta", Arial, sans-serif;
-      font-weight: 400;
-      text-transform: none;
-      font-size: 24px;
-      line-height: 1.25;
-      color: #6f777b;
-      margin-bottom: em(10);
-      padding-bottom: .167em;
-
-      @media screen and (max-width: 640px) {
-        font-size: 18px;
-        line-height: 1.2;
-      }
-  }
-
-}
 
 
 .inline-thirds{
@@ -783,27 +750,40 @@ $palette: (
 
 // Status on h1 
 
+span.status {
+  @include box-sizing(border-box);
+  
+  vertical-align: middle;
+  font-size: 10px;
+  padding: 1px 3px;
+  font-weight: bold;
+  color: $secondary-text-colour;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid $border-colour;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
 h1 {
   position:relative;
+}
 
-  span.status {
-    @include box-sizing(border-box);
-    position: absolute;
-    font-size: 15px;
-    margin-left: $gutter-half;
-    margin-top: 12px;
-    
-    font-weight: bold;
-    color: $govuk-blue;
-    padding: 5px 7px 4px 7px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border: 2px solid $govuk-blue;
-
-    &:hover {
-      color: $light-blue;
-      border: 2px solid $light-blue;
-    }
+h1 span.status {
+  position: absolute;
+  font-size: 15px;
+  margin-left: $gutter-half;
+  margin-top: 12px;
+  
+  color: $govuk-blue;
+  
+  padding: 5px 7px 4px 7px;
+  border-width: 2px;
+  border-color: $govuk-blue;
+  
+  &:hover {
+    color: $light-blue;
+    border-color: $light-blue;
   }
 }
 
@@ -815,3 +795,70 @@ h1 {
     padding: 10px;
     margin: $gutter-half 0 0 0;
   }
+
+ul.pattern-list {
+  max-width: inherit;
+  margin-bottom: 30px;
+
+  column-gap: 15px;
+  column-width: 400px;
+  
+  margin: 0;
+  padding: 15px 0;
+  list-style: none;
+  
+  li {
+    break-inside: avoid;
+    margin: 0;
+    padding: 5px 0;
+  }
+}
+
+.tab-count {
+  color: $secondary-text-colour;
+  margin-left: 5px;
+}
+
+h2.section-title {
+  margin-bottom: 0;
+}
+
+p.section-description {
+  margin-top: 5px;
+  color: $secondary-text-colour;
+  @include core-24;
+}
+
+body.blank {
+
+  ul ul {
+    list-style: none;
+    margin: 0 0 0 -20px;
+    padding: 0;
+    padding-top: 10px;
+    li {
+      background-color: $grey-3;
+      padding: 15px;
+      position: relative;
+      margin-bottom: 15px;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: $grey-3;
+        top: -9px;
+        left: 20px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  span.reason-for-change {
+    font-weight: bold;
+    color: $govuk-blue;
+  }
+
+}
