@@ -8,6 +8,8 @@ activate :deploy do |deploy|
   deploy.deploy_method = :git
   deploy.remote = 'heroku'
   deploy.branch = 'master'
+  # Build the site first then deploy this will only work if the build is successful 
+  # deploy.build_before = true
 end
 
 ###
